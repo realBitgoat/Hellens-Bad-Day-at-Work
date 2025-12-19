@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi86cw365tibt"]
+
+[ext_resource type="Shader" uid="uid://ca3h15cfu2wk6" path="res://battle.gdshader" id="1_ip7xm"]
+[ext_resource type="Texture2D" uid="uid://bxixrctd8as1w" path="res://Adobe Express - file.jpg" id="2_oxp8w"]
+[ext_resource type="Texture2D" uid="uid://bsxpkrd1bh65f" path="res://Assets/Tasse.png" id="3_7sfm4"]
+[ext_resource type="Texture2D" uid="uid://ch8iaxt77lk4r" path="res://Assets/Textfeld.png" id="4_i431l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7sfm4"]
+shader = ExtResource("1_ip7xm")
+shader_parameter/screen_height = 960.0
+shader_parameter/amplitude = 0.075
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(0, 0)
+shader_parameter/scrolling_speed = 0.08
+shader_parameter/enable_palette_cycling = false
+shader_parameter/enable_scan_lines = true
+shader_parameter/palette_speed = 0.1
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.39770445, 0.16515732, 0.16190282, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_7sfm4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_oxp8w")
+
+[node name="baddystats" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 322.0
+offset_top = -254.0
+offset_right = 555.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.2, 1.2)
+texture_normal = ExtResource("3_7sfm4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="baddystats"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HP" type="HBoxContainer" parent="baddystats/VBoxContainer"]
+layout_mode = 2
+
+[node name="HPleft" type="Label" parent="baddystats/VBoxContainer/HP"]
+layout_mode = 2
+
+[node name="SP" type="HBoxContainer" parent="baddystats/VBoxContainer"]
+layout_mode = 2
+
+[node name="SPleft" type="Label" parent="baddystats/VBoxContainer/SP"]
+layout_mode = 2
+
+[node name="Textpic" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -695.0
+offset_top = 641.00006
+offset_right = -78.0
+offset_bottom = 946.00006
+grow_horizontal = 2
+scale = Vector2(1.4800037, 1.4400015)
+texture_normal = ExtResource("4_i431l")
